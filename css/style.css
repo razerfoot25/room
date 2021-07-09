@@ -1,0 +1,414 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap");
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 0.6rem;
+}
+
+p {
+  font-size: 0.6rem;
+}
+
+a {
+  font-size: 0.9rem;
+}
+
+@media (min-width: 45rem) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 45rem) {
+  h2 {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 45rem) {
+  p {
+    font-size: 0.9rem;
+  }
+}
+@media (min-width: 64rem) {
+  h1 {
+    font-size: 2.8rem;
+  }
+}
+body {
+  font-family: "Spartan", sans-serif;
+}
+
+.container {
+  padding-inline: 2em;
+}
+@media (min-width: 64rem) {
+  .container {
+    padding-inline: 3em;
+  }
+}
+@media (min-width: 75rem) {
+  .container {
+    padding-inline: 5em;
+  }
+}
+
+.spacer > * + * {
+  margin-top: 2em;
+}
+
+.main-container {
+  max-width: 106rem;
+  min-width: 20rem;
+}
+
+.nav {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  padding-block: 2em;
+}
+@media (min-width: 45rem) {
+  .nav {
+    display: flex;
+  }
+}
+.nav input[type=checkbox] {
+  display: none;
+}
+.nav__title-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.nav__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-inline: auto;
+  text-decoration: none;
+}
+.nav #hamburger:checked ~ span {
+  background-image: url(../../images/icon-close.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 19px;
+  margin-left: 2px;
+}
+.nav__hamburger {
+  display: inline-block;
+  background-image: url(../../images/icon-hamburger.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 1rem;
+  width: 24px;
+  height: 17px;
+  z-index: 2;
+}
+@media (min-width: 45rem) {
+  .nav__hamburger {
+    display: none;
+  }
+}
+.nav__header-container {
+  display: none;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-block: 0;
+  padding-block: 2.7em;
+  padding-inline: 2em;
+}
+.nav__header-container > li:first-child {
+  margin-left: 4em;
+}
+@media (min-width: 45rem) {
+  .nav__header-container {
+    display: flex;
+    position: relative;
+    padding-inline: 0;
+  }
+}
+.nav__header a {
+  text-decoration: none;
+  color: black;
+}
+@media (min-width: 45rem) {
+  .nav__header {
+    padding-inline: 1.5em;
+  }
+  .nav__header a {
+    color: white;
+  }
+}
+
+.nav-open {
+  display: flex;
+  background: white;
+  animation: navOpen 250ms ease-out forwards;
+}
+
+@keyframes navOpen {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+.carousel {
+  height: 350px;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+@media (min-width: 64rem) {
+  .carousel {
+    height: 600px;
+    grid-column: 1/5;
+  }
+}
+@media (min-width: 75rem) {
+  .carousel {
+    position: unset;
+  }
+}
+.carousel__track-container {
+  height: 100%;
+  position: relative;
+}
+.carousel__track {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  transition: transform 500ms ease-in;
+}
+.carousel__slide {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+}
+.carousel__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel__image--desktop {
+  display: none;
+}
+@media (min-width: 45rem) {
+  .carousel__image--desktop {
+    display: block;
+  }
+  .carousel__image--mobile {
+    display: none;
+  }
+}
+.carousel__button-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0;
+  z-index: 2;
+}
+@media (min-width: 75rem) {
+  .carousel__button-container {
+    grid-column: 5/6;
+    left: 0;
+  }
+}
+.carousel__button {
+  position: relative;
+  padding: 15px 20px;
+  background: black;
+  border: 0;
+  cursor: pointer;
+}
+.carousel__button img {
+  width: 10px;
+}
+.carousel__button:disabled {
+  background: #454545;
+}
+@media (min-width: 45rem) {
+  .carousel__button {
+    padding: 25px 30px;
+  }
+  .carousel__button img {
+    width: 15px;
+  }
+}
+@media (min-width: 75rem) {
+  .carousel__button {
+    padding: 40px 49px;
+  }
+  .carousel__button img {
+    width: 15px;
+  }
+}
+.carousel__nav {
+  text-align: center;
+}
+@media (min-width: 64rem) {
+  .carousel__cardholder {
+    grid-column: 5/8;
+  }
+}
+.carousel__card {
+  display: none;
+  padding: 4em 0.5em;
+}
+.carousel__card h1 {
+  color: black;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.carousel__card p {
+  color: #a1a1a1;
+  line-height: 1.7;
+}
+.carousel__card a {
+  display: block;
+  padding-top: 1em;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+.carousel__card a img {
+  display: inline;
+  margin-left: 30px;
+}
+.carousel__card a:hover {
+  opacity: 0.6;
+}
+
+.current-slide {
+  display: block;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+}
+@media (min-width: 64rem) {
+  main {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (min-width: 75rem) {
+  main {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+.footer {
+  display: grid;
+  max-width: 100%;
+}
+@media (min-width: 64rem) {
+  .footer {
+    grid-template-columns: 1fr 1.5fr 1fr;
+  }
+}
+.footer__about {
+  padding-block: 3em;
+}
+.footer__about h2 {
+  color: black;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+}
+.footer__about p {
+  color: #a1a1a1;
+  line-height: 1.7;
+}
+.footer__image-container {
+  max-width: 100%;
+}
+.footer__image-container img {
+  width: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Room homepage</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="nav container">
+  <div class="nav__title-container">
+    <label for="hamburger">
+      <input type="checkbox" name="hamburger" id="hamburger">
+      <span class="nav__hamburger"></span>
+    </label>
+    <a href="#" class="nav__title">room</a>
+  </div>
+  <ul class="nav__header-container" role="list">
+    <li class="nav__header"><a href="#">home</a></li>
+    <li class="nav__header"><a href="#">shop</a></li>
+    <li class="nav__header"><a href="#">about</a></li>
+    <li class="nav__header"><a href="#">contact</a></li>
+  </ul>
+</div>
+<main>
+<div class="carousel main-container">
+  <div class="carousel__track-container">
+      <ul class="carousel__track" role="list">
+          <li class="carousel__slide current-slide">
+              <img src="./images/desktop-image-hero-1.jpg" class="carousel__image carousel__image--desktop" alt="slide1">
+              <img src="./images/mobile-image-hero-1.jpg" class="carousel__image carousel__image--mobile" alt="slide1">
+          </li>
+          <li class="carousel__slide">
+              <img src="./images/desktop-image-hero-2.jpg" class="carousel__image carousel__image--desktop" alt="slide2">
+              <img src="./images/mobile-image-hero-2.jpg" class="carousel__image carousel__image--mobile" alt="slide2">
+          </li>
+          <li class="carousel__slide">
+              <img src="./images/desktop-image-hero-3.jpg" class="carousel__image carousel__image--desktop" alt="slide3">
+              <img src="./images/mobile-image-hero-3.jpg" class="carousel__image carousel__image--mobile" alt="slide3">
+          </li>
+      </ul>
+  </div>
+  <div class="carousel__button-container">
+    <button class="carousel__button carousel__button--left" disabled>
+        <img src="./images/icon-angle-left.svg">
+    </button><!---->
+    <button class="carousel__button carousel__button--right">
+        <img src="./images/icon-angle-right.svg">
+    </button>
+  </div>
+</div>
+
+<div class="carousel__cardholder container main-container">
+  <div class="carousel__card spacer current-slide">
+    <h1>Discover innovative ways to decorate</h1>
+  
+    <p> We provide unmatched quality, comfort, and style for property owners across the country. 
+      Our experts combine form and function in bringing your vision to life. Create a room in your 
+      own style with our collection and make your property a reflection of you and what you love.</p>
+    <a href="#">Shop now<img src="./images/icon-arrow.svg" alt="arrow" /></a>
+  </div>
+  
+
+  <div class="carousel__card spacer">
+    <h1>We are available all across the globe</h1>
+    <p>With stores all over the world, it's easy for you to find furniture for your home or place of business. 
+      Locally, we’re in most major cities throughout the country. Find the branch nearest you using our 
+      store locator. Any questions? Don't hesitate to contact us today.</p>
+    <a href="">Shop now<img src="./images/icon-arrow.svg" alt="arrow" /></a>
+  </div>
+
+  
+  <div class="carousel__card spacer">
+    <h1>Manufactured with the best materials</h1>
+    <p> Our modern furniture store provide a high level of quality. Our company has invested in advanced technology 
+      to ensure that every product is made as perfect and as consistent as possible. With three decades of 
+      experience in this industry, we understand what customers want for their home and office.
+    </p>
+    <a href="">Shop now<img src="./images/icon-arrow.svg" alt="arrow" /></a>
+  </div>
+  
+</div>
+</main>
+<footer class="footer main-container">
+  <div class="footer__image-container"><img src="./images/image-about-dark.jpg" alt="2 black chair and a bowl on top of a table"></div>
+  <div class="footer__about container spacer">
+    <h2> About our furniture</h2>
+    <p>Our multifunctional collection blends design and function to suit your individual taste.
+      Make each room unique, or pick a cohesive theme that best express your interests and what
+      inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+      or anything in between. Product specialists are available to help you create your dream space.
+    </p>
+  </div>
+  <div class="footer__image-container"><img src="./images/image-about-light.jpg" alt="white chair"></div>
+</footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
