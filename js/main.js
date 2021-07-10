@@ -1,5 +1,6 @@
 const hamburger = document.querySelector('#hamburger');
 const navHeader = document.querySelector('.nav__header-container');
+const darkBG = document.querySelector('.dark-bg');
 const track = document.querySelector('.carousel__track');
 const slides = Array.from(track.children);
 const nextButton = document.querySelector('.carousel__button--right');
@@ -7,16 +8,20 @@ const prevButton = document.querySelector('.carousel__button--left');
 
 const carouselCards = document.querySelector('.carousel__cardholder');
 const cards = Array.from(carouselCards.children);
-
 hamburger.addEventListener('change', e =>{
     if(e.target.checked) {
-       navHeader.classList.add('nav-open');
+
+       navHeader.style.right = '0';
+       navHeader.style.background = 'white';
+       darkBG.style.display = 'block';
  
     }else {
-        navHeader.classList.remove('nav-open');
+       navHeader.style.right = '100%';
+       darkBG.style.display = 'none';
+
     }
 })
-
+console.log(window.innerHeight);
 
 const slideWidth = slides[0].getBoundingClientRect().width;
 const setSlidePosition = (slide , i) => {

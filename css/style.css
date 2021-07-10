@@ -59,20 +59,6 @@ select {
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
-  *,
-*::before,
-*::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
 h1 {
   font-size: 1.5rem;
 }
@@ -164,8 +150,8 @@ body {
 .nav {
   position: absolute;
   width: 100%;
-  z-index: 2;
-  padding-block: 2em;
+  z-index: 3;
+  padding-block: 1.5em;
 }
 @media (min-width: 45rem) {
   .nav {
@@ -195,6 +181,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   height: 19px;
+  margin-top: 5px;
   margin-left: 2px;
 }
 .nav__hamburger {
@@ -214,24 +201,27 @@ body {
   }
 }
 .nav__header-container {
-  display: none;
+  display: flex;
   justify-content: space-between;
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
+  right: 100%;
   margin-block: 0;
   padding-block: 2.7em;
   padding-inline: 2em;
+  transition: right 250ms ease-out;
+}
+.nav__header-container > li {
+  margin-right: 1em;
 }
 .nav__header-container > li:first-child {
   margin-left: 4em;
 }
 @media (min-width: 45rem) {
   .nav__header-container {
-    display: flex;
     position: relative;
+    right: unset;
     padding-inline: 0;
   }
   .nav__header-container > li:first-child {
@@ -241,30 +231,26 @@ body {
 .nav__header a {
   text-decoration: none;
   color: black;
+  font-weight: 600;
 }
 @media (min-width: 45rem) {
   .nav__header {
-    padding-inline: 1em;
+    padding-inline: 0.5em;
   }
   .nav__header a {
     color: white;
   }
 }
 
-.nav-open {
-  display: flex;
-  background: white;
-  animation: navOpen 250ms ease-out forwards;
+.dark-bg {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.5;
+  background: black;
 }
 
-@keyframes navOpen {
-  from {
-    left: 100%;
-  }
-  to {
-    left: 0;
-  }
-}
 .carousel {
   height: 350px;
   width: 100%;
@@ -292,9 +278,14 @@ body {
   position: relative;
 }
 .carousel__track {
+  display: block;
   padding: 0;
   margin: 0;
   height: 100%;
+  -moz-transition: -moz-transform 500ms ease-in;
+  -webkit-transition: transform 500ms ease-in;
+  -ms-transition: -ms-transform 500ms ease-in;
+  -o-transition: transform 500ms ease-in;
   transition: transform 500ms ease-in;
 }
 .carousel__slide {
@@ -323,7 +314,6 @@ body {
   bottom: 0;
   right: 0;
   font-size: 0;
-  z-index: 2;
 }
 @media (min-width: 75rem) {
   .carousel__button-container {
